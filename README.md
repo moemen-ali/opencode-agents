@@ -21,13 +21,13 @@ Agents are plain markdown files — no installs, no plugins. Drop one into your 
 **Project-specific** — scoped to one repo, can be committed and shared with your team:
 
 ```bash
-mkdir -p .opencode/agents && curl -sL https://raw.githubusercontent.com/moemenali/opencode-agents/main/angular-review.md -o .opencode/agents/angular-review.md
+mkdir -p .opencode/agents && curl -sL https://raw.githubusercontent.com/moemen-ali/opencode-agents/main/angular-review.md -o .opencode/agents/angular-review.md
 ```
 
 **Global** — available across all your projects:
 
 ```bash
-mkdir -p ~/.config/opencode/agents && curl -sL https://raw.githubusercontent.com/moemenali/opencode-agents/main/angular-review.md -o ~/.config/opencode/agents/angular-review.md
+mkdir -p ~/.config/opencode/agents && curl -sL https://raw.githubusercontent.com/moemen-ali/opencode-agents/main/angular-review.md -o ~/.config/opencode/agents/angular-review.md
 ```
 
 ### Manual
