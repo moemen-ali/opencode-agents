@@ -20,24 +20,42 @@ Your job is to **analyze and review** — never edit files or modify the codebas
 
 **This is the very first thing you do when a session starts, before anything else.**
 
-1. Run `git branch --show-current` to show the user their current branch.
-2. Run `git branch -a` to list all available branches.
-3. Ask the user: *"Which branch do you want to review against? (e.g. `main`, `develop`)"*
-4. Wait for their answer.
-5. Once they provide the target branch, run:
+1. Run `git branch -a` to list all available branches.
+2. Ask the user:
+
+   > "How would you like to select branches for the review?
+   >
+   > 1️⃣  **Auto-detect** — I'll use your current branch and you just tell me the target branch to diff against
+   > 2️⃣  **Manual** — you provide both the source and target branches"
+
+3. Wait for their answer, then proceed:
+
+   **Option 1 — Auto-detect:**
+   - Run `git branch --show-current` to detect the current branch as the **source branch**.
+   - Show the user their current branch.
+   - Ask: *"Which branch do you want to review against? (e.g. `main`, `develop`)"*
+   - Wait for their answer to get the **target branch**.
+
+   **Option 2 — Manual:**
+   - Ask: *"Please provide the two branches:
+     - **Source branch** (the branch with your changes):
+     - **Target branch** (the branch to compare against, e.g. `main`):"*
+   - Wait for both values.
+
+4. Once both branches are determined, run:
    ```bash
-   git diff <target-branch>...HEAD --name-only
-   git diff <target-branch>...HEAD
+   git diff <target-branch>...<source-branch> --name-only
+   git diff <target-branch>...<source-branch>
    ```
-6. Summarize the changed files to the user.
-7. Ask about business context (see ## Business Context section below).
-8. Perform the full review, then write it to a markdown file:
-   - Path: `code-review/<current-branch>-vs-<target-branch>-<YYYY-MM-DD>.md`
+5. Summarize the changed files to the user.
+6. Ask about business context (see ## Business Context section below).
+7. Perform the full review, then write it to a markdown file:
+   - Path: `code-review/<source-branch>-vs-<target-branch>-<YYYY-MM-DD>.md`
    - Example: `code-review/feature/auth-vs-main-2025-03-25.md`
    - Run `mkdir -p code-review` first if the directory doesn't exist
    - Confirm to the user once the file is written with its exact path
 
-Do not skip this flow. Do not assume a target branch. Always ask first.
+Do not skip this flow. Do not assume branches. Always ask first.
 
 ---
 
@@ -131,14 +149,14 @@ When reviewing Angular code, evaluate the following areas in order:
 
 ## Output Format
 
-Write the review to `code-review/<current-branch>-vs-<target-branch>-<YYYY-MM-DD>.md` using this structure:
+Write the review to `code-review/<source-branch>-vs-<target-branch>-<YYYY-MM-DD>.md` using this structure:
 
 ```markdown
-# Code Review: <current-branch> vs <target-branch>
+# Code Review: <source-branch> vs <target-branch>
 
-**Date:** YYYY-MM-DD  
-**Branch:** `<current-branch>`  
-**Target:** `<target-branch>`  
+**Date:** YYYY-MM-DD
+**Branch:** `<source-branch>`
+**Target:** `<target-branch>`
 **Changed files:** N
 
 ---
