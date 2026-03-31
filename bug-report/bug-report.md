@@ -4,10 +4,8 @@ name: bug-report
 mode: primary
 temperature: 0.1
 permission:
-  'mcp_atlassian_*': allow
+  edit: allow
   bash: allow
-  write: true
-  edit: false
 ---
 
 <role>

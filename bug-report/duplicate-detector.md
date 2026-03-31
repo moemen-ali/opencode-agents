@@ -4,10 +4,9 @@ name: duplicate-detector
 mode: subagent
 hidden: true
 temperature: 0.2
-permission:
-  write: true
-  edit: false
+tools:
   bash: false
+  edit: false
 ---
 
 <role>

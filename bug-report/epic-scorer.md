@@ -4,10 +4,9 @@ name: epic-scorer
 mode: subagent
 hidden: true
 temperature: 0.3
-permission:
-  write: true
-  edit: false
+tools:
   bash: false
+  edit: false
 ---
 
 <role>

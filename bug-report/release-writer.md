@@ -4,10 +4,9 @@ name: release-writer
 mode: subagent
 hidden: true
 temperature: 0.5
-permission:
-  write: true
-  edit: false
+tools:
   bash: false
+  edit: false
 ---
 
 <role>
