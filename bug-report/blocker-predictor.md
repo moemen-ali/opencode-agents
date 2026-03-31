@@ -4,9 +4,9 @@ name: blocker-predictor
 mode: subagent
 hidden: true
 temperature: 0.3
-tools:
-  bash: false
-  edit: false
+permission:
+  edit: allow
+  bash: allow
 ---
 
 <role>
